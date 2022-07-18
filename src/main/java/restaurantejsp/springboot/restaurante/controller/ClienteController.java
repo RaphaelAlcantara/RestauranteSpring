@@ -51,6 +51,12 @@ public ModelAndView listarClientes() {
         return "login";
     }
 
+    //excluir
+    @RequestMapping("/excluir{cpf}")
+    public String excluir(@PathVariable String cpf) {
+        clienteRepositorio.deleteById(cpf);
+        return "redirect:/consultar";
+    }
 
     //alterar
 //    @PutMapping("/alterar")

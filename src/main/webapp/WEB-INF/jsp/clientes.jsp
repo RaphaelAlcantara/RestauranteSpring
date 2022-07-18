@@ -34,10 +34,11 @@
         <td>${cliente.nome}</td>
         <td>${cliente.telefone}</td>
         <td>${cliente.email}</td>
+        <td><button onclick="location.href='/excluir${cliente.cpf}'">Remover</button></td>
     </tr>
         </c:forEach>
     </tbody>
   </table>
-  <button class="uk-button uk-button-default" type="button" onclick="location.href='/'">Voltar</button>
+  <button class="uk-button uk-button-default" type="button" onclick="location.href='/main'">Voltar</button>
 </body>
 </html>

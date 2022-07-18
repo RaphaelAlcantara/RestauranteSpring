@@ -20,7 +20,17 @@ public class IndexController {
         return "cadastro";
     }
 
+    @GetMapping("/mainADM")
+    public String mainADM() {
 
+        return "mainADM";
+    }
+
+    @GetMapping("/main")
+    public String main() {
+
+        return "main";
+    }
 
 
 }
