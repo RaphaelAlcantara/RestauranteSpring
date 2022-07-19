@@ -17,60 +17,60 @@ import java.util.Scanner;
 //@RestController
 public class ClienteController {
 
-    @Autowired
-    private ClienteRepositorio clienteRepositorio;
-    @Autowired
-    private PratoRepositorio pratoRepositorio;
-
-
-    /*    Listar todos os clientes
-          @GetMapping("/listar")
-          public List<Cliente> listar() {
-          return clienteRepositorio.findAll();}
-    */
-    @GetMapping("/consultar")
-    public ModelAndView listarClientes() {
-        ModelAndView mv = new ModelAndView("clientes");
-        List<Cliente> Clientes = clienteRepositorio.findAll();
-        mv.addObject("clientes", Clientes);
-        return mv;
-    }
-
-
-   /* Cadastrar cliente
-    @PostMapping("/cadastrar")
-   public void incluir(@RequestBody Cliente cliente) {
-       clienteRepositorio.save(cliente);
-    }*/
-
-    @RequestMapping("/cadastrar")
-    public String criar(Cliente cliente, Model m) {
-        m.addAttribute("cadastro", "Cadastro realizado com sucesso!");
-        clienteRepositorio.save(cliente.toCliente());
-        return "login";
-    }
-
-    //excluir
-    @RequestMapping("/excluir{cpf}")
-    public String excluir(@PathVariable String cpf) {
-        clienteRepositorio.deleteById(cpf);
-        return "redirect:/consultar";
-    }
-
-    @RequestMapping(value = "/logar", method = RequestMethod.POST)
-    public String logar(@ModelAttribute Cliente cliente, Model m) {
-        m.addAttribute("erro", "Usuário ou senha inválidos!");
-        List<Cliente> all = clienteRepositorio.findAll();
-        for (Cliente c : all) {
-            if (c.getCpf().equals(cliente.getCpf()) && c.getSenha().equals(cliente.getSenha())) {
-//                m.addAttribute("msg", "Bem vindo! "+ c.getNome()+ " Escolha seu prato!");
-                return "redirect:/main";
-            } else if (cliente.getCpf().equals("ADM") && cliente.getSenha().equals("ADM")) {
-                return "mainADM";
-            }
-        }
-        return "redirect:/";
-    }
+//    @Autowired
+//    private ClienteRepositorio clienteRepositorio;
+//    @Autowired
+//    private PratoRepositorio pratoRepositorio;
+//
+//
+//    /*    Listar todos os clientes
+//          @GetMapping("/listar")
+//          public List<Cliente> listar() {
+//          return clienteRepositorio.findAll();}
+//    */
+//    @GetMapping("/consultar")
+//    public ModelAndView listarClientes() {
+//        ModelAndView mv = new ModelAndView("clientes");
+//        List<Cliente> Clientes = clienteRepositorio.findAll();
+//        mv.addObject("clientes", Clientes);
+//        return mv;
+//    }
+//
+//
+//   /* Cadastrar cliente
+//    @PostMapping("/cadastrar")
+//   public void incluir(@RequestBody Cliente cliente) {
+//       clienteRepositorio.save(cliente);
+//    }*/
+//
+//    @RequestMapping("/cadastrar")
+//    public String criar(Cliente cliente, Model m) {
+//        m.addAttribute("cadastro", "Cadastro realizado com sucesso!");
+//        clienteRepositorio.save(cliente.toCliente());
+//        return "login";
+//    }
+//
+//    //excluir
+//    @RequestMapping("/excluir{cpf}")
+//    public String excluir(@PathVariable String cpf) {
+//        clienteRepositorio.deleteById(cpf);
+//        return "redirect:/consultar";
+//    }
+//
+//    @RequestMapping(value = "/logar", method = RequestMethod.POST)
+//    public String logar(@ModelAttribute Cliente cliente, Model m) {
+//        m.addAttribute("erro", "Usuário ou senha inválidos!");
+//        List<Cliente> all = clienteRepositorio.findAll();
+//        for (Cliente c : all) {
+//            if (c.getCpf().equals(cliente.getCpf()) && c.getSenha().equals(cliente.getSenha())) {
+////                m.addAttribute("msg", "Bem vindo! "+ c.getNome()+ " Escolha seu prato!");
+//                return "redirect:/main";
+//            } else if (cliente.getCpf().equals("ADM") && cliente.getSenha().equals("ADM")) {
+//                return "mainADM";
+//            }
+//        }
+//        return "redirect:/";
+//    }
 
 
 

@@ -17,16 +17,22 @@
 
 <body>
 <a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>MENU</a>
-<h1 class="uk-heading-line uk-text-center"><p class="uk-text-success">${cadastroPrato}</p></h1>
+<h1 class="uk-heading-line uk-text-center"><p class="uk-text-success">${cadastroPrato}${cadastroPagamento}</p></h1>
 <div id="offcanvas-slide" uk-offcanvas>
     <div class="uk-offcanvas-bar">
 
         <ul class="uk-nav uk-nav-default">
             <li class="uk-active"><a>CLIENTES</a></li>
-            <li><a href="/consultar">Listar</a></li>
+            <li><a href="/consultar">Listar clientes</a></li>
+
             <li class="uk-nav-header">PRATOS</li>
             <li><a href="/cadastrarP">Cadastrar Pratos</a></li>
             <li><a href="/consultarPrato">Listar Pratos</a></li>
+
+            <li class="uk-nav-header">PAGAMENTO</li>
+            <li><a href="/cadastrarPag">Cadastrar Formas de pagamento</a></li>
+            <li><a href="/consultarPagamentos">Listar Formas de pagamento</a></li>
+
             <li class="uk-nav-divider"></li>
             <li class="uk-active"><a href="#modal-example" uk-toggle>SAIR</a></li>
         </ul>

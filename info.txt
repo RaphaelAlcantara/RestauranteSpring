@@ -1,17 +1,17 @@
 vocês precisarão desenvolver um sistema pedidos de restaurante usando o spring web. Abaixo seguem os requisitos.
 
-- O cliente deve ser capas de se cadastrar no sistema.
-- O cliente deve ser capaz de fazer o login no sistema.
+- O cliente deve ser capaz de se cadastrar no sistema. -OK
+- O cliente deve ser capaz de fazer o login no sistema. - OK
 - O cliente deve ser capaz de ver os pratos cadastrados no sistema, na pagina inicial. (Não há a necessidade de criar uma
- página alternativa para isto).
+ página alternativa para isto). - OK
 - Na página inicial, o cliente poderá selecionar um dos pratos. Ao fazer isto, o sistema deve enviar o cliente para outra
  página (ou abrir um modal), onde o cliente possa selecionar a forma de pagamento e fazer alguma observação ao pedido.
  Nesta página também deve haver a opção de realizar o pedido.
 - O cliente deve poder ver todos os pedidos que ele fez.
 
-- O ADM deve poder cadastrar pratos.
-- O ADM deve poder visualizar os clientes.
-- O ADM deve poder cadastrar formas de pagamento.
+- O ADM deve poder cadastrar pratos. - OK
+- O ADM deve poder visualizar os clientes. - OK
+- O ADM deve poder cadastrar formas de pagamento. -OK
 - O ADM deve poder visualizar os pedidos (com todas as suas informações, prato selecionado, cliente e forma de pagamento).
 
 - O sistema deve ser feito usando banco de dados.

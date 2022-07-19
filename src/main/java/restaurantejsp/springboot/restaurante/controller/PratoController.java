@@ -17,48 +17,48 @@ import java.util.List;
 @Controller
 public class PratoController {
 
-    @Autowired
-    private PratoRepositorio pratoRepositorio;
-
-    @Autowired
-    private ClienteRepositorio clienteRepositorio;
-
-    @GetMapping("/cadastrarP")
-    public String cadastraPrato(){
-        return "cadastroPrato";
-    }
-
-    @RequestMapping("/cadastrarPrato")
-    public String criar(Prato prato, Model m) {
-        m.addAttribute("cadastroPrato", "Cadastro realizado com sucesso!");
-        pratoRepositorio.save(prato.toPrato());
-        return "mainADM";
-    }
-
-    @GetMapping("/consultarPrato")
-    public ModelAndView listarClientes() {
-        ModelAndView mv = new ModelAndView("pratos");
-        List<Prato> Pratos = pratoRepositorio.findAll();
-        mv.addObject("pratos", Pratos);
-        return mv;
-    }
-
-
-
-    @RequestMapping("/excluirPrato{id}")
-    public String excluir(@PathVariable Long id) {
-        pratoRepositorio.deleteById(id);
-        return "redirect:/consultarPrato";
-    }
-
-    @GetMapping("/main")
-    public ModelAndView main(Model m) {
-        ModelAndView mv = new ModelAndView("main");
-        m.addAttribute("Bemvindo", "Bem vindo ao restaurante Minimalist");
-        List<Prato> Pratos = pratoRepositorio.findAll();
-        mv.addObject("pratos", Pratos);
-        return mv;
-    }
+//    @Autowired
+//    private PratoRepositorio pratoRepositorio;
+//
+//    @Autowired
+//    private ClienteRepositorio clienteRepositorio;
+//
+//    @GetMapping("/cadastrarP")
+//    public String cadastraPrato(){
+//        return "cadastroPrato";
+//    }
+//
+//    @RequestMapping("/cadastrarPrato")
+//    public String criar(Prato prato, Model m) {
+//        m.addAttribute("cadastroPrato", "Cadastro realizado com sucesso!");
+//        pratoRepositorio.save(prato.toPrato());
+//        return "mainADM";
+//    }
+//
+//    @GetMapping("/consultarPrato")
+//    public ModelAndView listarClientes() {
+//        ModelAndView mv = new ModelAndView("pratos");
+//        List<Prato> Pratos = pratoRepositorio.findAll();
+//        mv.addObject("pratos", Pratos);
+//        return mv;
+//    }
+//
+//
+//
+//    @RequestMapping("/excluirPrato{id}")
+//    public String excluir(@PathVariable Long id) {
+//        pratoRepositorio.deleteById(id);
+//        return "redirect:/consultarPrato";
+//    }
+//
+//    @GetMapping("/main")
+//    public ModelAndView main(Model m) {
+//        ModelAndView mv = new ModelAndView("main");
+//        m.addAttribute("Bemvindo", "Bem vindo ao restaurante Minimalist");
+//        List<Prato> Pratos = pratoRepositorio.findAll();
+//        mv.addObject("pratos", Pratos);
+//        return mv;
+//    }
 
 
 }

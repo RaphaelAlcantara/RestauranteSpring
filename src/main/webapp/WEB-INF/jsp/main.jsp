@@ -61,7 +61,6 @@
 
 
 </div>
-<button class="uk-button uk-button-default" type="button" onclick="location.href='/main'">Voltar</button>
 
 </body>
 </html>
