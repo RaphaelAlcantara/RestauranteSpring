@@ -1,20 +1,21 @@
 package restaurantejsp.springboot.restaurante.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import restaurantejsp.springboot.restaurante.modelo.Cliente;
 import restaurantejsp.springboot.restaurante.modelo.Pagamento;
+import restaurantejsp.springboot.restaurante.modelo.Pedido;
 import restaurantejsp.springboot.restaurante.modelo.Prato;
 import restaurantejsp.springboot.restaurante.repositorio.ClienteRepositorio;
 import restaurantejsp.springboot.restaurante.repositorio.PagamentoRepositorio;
+import restaurantejsp.springboot.restaurante.repositorio.PedidoRepositorio;
 import restaurantejsp.springboot.restaurante.repositorio.PratoRepositorio;
 
 import java.util.List;
-
-import static java.lang.System.out;
 
 
 @Controller
@@ -42,6 +43,9 @@ public class IndexController {
 
     @Autowired
     private PagamentoRepositorio pagamentoRepositorio;
+
+    @Autowired
+    private PedidoRepositorio pedidoRepositorio;
 
 
     /*    Listar todos os clientes
@@ -92,20 +96,31 @@ public class IndexController {
         return "redirect:/consultar";
     }
 
-    @RequestMapping(value = "/logar", method = RequestMethod.POST)
-    public String logar(@ModelAttribute Cliente cliente) {
+    @RequestMapping(value = {"/logar"}, method = {RequestMethod.POST})
+    public ModelAndView logar(@ModelAttribute Cliente cliente, Model m) {
 
         List<Cliente> all = clienteRepositorio.findAll();
         for (Cliente c : all) {
             if (c.getCpf().equals(cliente.getCpf()) && c.getSenha().equals(cliente.getSenha())) {
-                return "redirect:/main";
+                ModelAndView mv = new ModelAndView("main");
+                m.addAttribute("Bemvindo", "Bem vindo ao restaurante Minimalist "+c.getNome());
+                m.addAttribute("CC", c.getNome());
+                List<Prato> Pratos = pratoRepositorio.findAll();
+                List<Cliente> Clientes = clienteRepositorio.findAll();
+                List<Pagamento> Pagamentos = pagamentoRepositorio.findAll();
+                List<Pedido> Pedidos = pedidoRepositorio.findAll();
+                mv.addObject("clientes", Clientes);
+                mv.addObject("pratos", Pratos);
+                mv.addObject("pagamentos", Pagamentos);
+                mv.addObject("pedidos", Pedidos);
+                return mv;
             } else if (cliente.getCpf().equals("ADM") && cliente.getSenha().equals("ADM")) {
-                return "mainADM";
-            }else {
-                return "redirect:/userError";
+                ModelAndView mv = new ModelAndView("mainADM");
+                return mv;
             }
         }
-        return "redirect:/";
+        m.addAttribute("erro", "Usuário ou senha inválidos!");
+        return new ModelAndView("login");
     }
 
 
@@ -139,14 +154,18 @@ public class IndexController {
         return "redirect:/consultarPrato";
     }
 
-    @GetMapping("/main")
-    public ModelAndView main(Model m) {
-        ModelAndView mv = new ModelAndView("main");
-        m.addAttribute("Bemvindo", "Bem vindo ao restaurante Minimalist");
-        List<Prato> Pratos = pratoRepositorio.findAll();
-        mv.addObject("pratos", Pratos);
-        return mv;
-    }
+//    @RequestMapping("/main")
+//    public ModelAndView main(Model m) {
+//        ModelAndView mv = new ModelAndView("main");
+//        m.addAttribute("Bemvindo", "Bem vindo ao restaurante Minimalist");
+//        List<Prato> Pratos = pratoRepositorio.findAll();
+//        List<Cliente> Clientes = clienteRepositorio.findAll();
+//        List<Pagamento> Pagamentos = pagamentoRepositorio.findAll();
+//        mv.addObject("clientes", Clientes);
+//        mv.addObject("pratos", Pratos);
+//        mv.addObject("pagamentos", Pagamentos);
+//        return mv;
+//    }
 //--------------------------PAGAMENTO-------------------------------------------------------------------
 
 
@@ -176,4 +195,32 @@ public class IndexController {
         pagamentoRepositorio.deleteById(id);
         return "redirect:/consultarPagamentos";
     }
+//--------------------------PEDIDOS-------------------------------------------------------------------
+
+//    @RequestMapping("idPrato{id}/{cliente}")
+//    public ModelAndView idPrato(@PathVariable Long id,@PathVariable String cliente, Model m) {
+//        ModelAndView mv = new ModelAndView("RealizarPedido");
+//        String prato = pratoRepositorio.findById(id).get().getNome();
+//        Double preco = pratoRepositorio.findById(id).get().getPreco();
+//        List<Pagamento> Pagamentos = pagamentoRepositorio.findAll();
+//        mv.addObject("pagamentos", Pagamentos);
+//        m.addAttribute("prato", prato);
+//        m.addAttribute("cliente", cliente);
+//        m.addAttribute("preco", preco);
+//        return mv;
+//    }
+
+    @RequestMapping("/RealizarPedido{id}/{cliente}")
+    public ModelAndView RealizarPedido(@PathVariable Long id,@PathVariable String cliente, Model m) {
+        ModelAndView mv = new ModelAndView("RealizarPedido");
+        String prato = pratoRepositorio.findById(id).get().getNome();
+        Double preco = pratoRepositorio.findById(id).get().getPreco();
+        List<Pagamento> Pagamentos = pagamentoRepositorio.findAll();
+        mv.addObject("pagamentos", Pagamentos);
+        m.addAttribute("prato", prato);
+        m.addAttribute("cliente", cliente);
+        m.addAttribute("preco", preco);
+        return mv;
+    }
+
 }

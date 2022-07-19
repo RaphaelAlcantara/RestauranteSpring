@@ -1,3 +1,5 @@
+<%@ page import="restaurantejsp.springboot.restaurante.modelo.Pedido" %>
+<%@ page import="java.time.LocalDate" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -45,6 +47,7 @@
 <div class="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
 
 <c:forEach var="prato" items="${pratos}">
+
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
                     <img src="${prato.urlImagem}" width="200" height="150" alt="">
@@ -53,10 +56,11 @@
                     <h3 class="uk-card-title">${prato.nome}</h3>
                     <p>${prato.descricao}</p>
                     <p class="uk-text-bold">R$${prato.preco}</p>
-                    <button class="uk-button uk-button-primary uk-button-small">Comprar</button>
+                    <a class="uk-button uk-button-primary" onclick="window.location.href='/RealizarPedido${prato.id}/${CC}'" uk-toggle>Comprar</a>
                 </div>
             </div>
 </c:forEach>
+
 
 
 
