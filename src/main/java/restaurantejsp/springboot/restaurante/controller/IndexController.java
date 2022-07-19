@@ -103,7 +103,8 @@ public class IndexController {
         List<Cliente> all = clienteRepositorio.findAll();
         for (Cliente c : all) {
             if (c.getCpf().equals(cliente.getCpf()) && c.getSenha().equals(cliente.getSenha())) {
-                ModelAndView mv = new ModelAndView("main");
+
+                ModelAndView mv = new ModelAndView("main", "cliente", c);
                 m.addAttribute("Bemvindo", "Bem vindo ao restaurante Minimalist "+c.getNome());
                 m.addAttribute("CC", c.getNome());
                 List<Prato> Pratos = pratoRepositorio.findAll();
@@ -125,10 +126,12 @@ public class IndexController {
     }
 
     @RequestMapping("/main")
-    public String main() {
-        return "main";
-    }
+    public ModelAndView main() {
+        ModelAndView mv = new ModelAndView("main", "prato", new Prato());
 
+        return mv;
+
+    }
 
     //--------------------------PRATOS-------------------------------------------------------------------
 
@@ -238,6 +241,15 @@ public class IndexController {
         mv.addObject("pedidos", Pedidos);
         return mv;
     }
+
+    @RequestMapping("/consultarPedidos")
+    public ModelAndView listarPedidos() {
+        ModelAndView mv = new ModelAndView("MeusPedidos");
+        List<Pedido> Pedidos = pedidoRepositorio.findAll();
+        mv.addObject("pedidos", Pedidos);
+        return mv;
+    }
+
 
     @RequestMapping("/PedidoAdm")
     public ModelAndView PedidoAdm() {

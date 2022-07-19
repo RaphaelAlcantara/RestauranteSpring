@@ -22,17 +22,21 @@
 <a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>MENU</a>
 
 <h1 class="uk-heading-line uk-text-center"><p class="uk-align-center">${Bemvindo} ${cadastroPedido}</p></h1>
+
+</form>
 <div id="offcanvas-slide" uk-offcanvas>
     <div class="uk-offcanvas-bar">
 
         <ul class="uk-nav uk-nav-default">
             <li class="uk-active"><a>PEDIDOS</a></li>
-            <li><a href="#">Meus pedidos</a></li>
+            <li><a href="/consultarPedidos">Meus pedidos</a></li>
             <li class="uk-nav-divider"></li>
             <li class="uk-active"><a href="#modal-example" uk-toggle>SAIR</a></li>
         </ul>
     </div>
 </div>
+
+
 
 <div id="modal-example" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
@@ -60,9 +64,6 @@
                 </div>
             </div>
 </c:forEach>
-
-
-
 
 </div>
 

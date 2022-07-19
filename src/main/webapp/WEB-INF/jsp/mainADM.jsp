@@ -22,10 +22,12 @@
 
 <div class="uk-child-width-1@s uk-light" uk-grid>
     <div>
-        <div class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-left" style="background-image: url(https://i.imgur.com/YxMZWC4.png); align-items: center; margin: 24em">
+        <div class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-left" style="background-image: url(https://i.imgur.com/YxMZWC4.png); align-items: center; background-size: 700px ;">
 
         </div>
+
     </div>
+
 </div>
 <div id="offcanvas-slide" uk-offcanvas>
     <div class="uk-offcanvas-bar">
