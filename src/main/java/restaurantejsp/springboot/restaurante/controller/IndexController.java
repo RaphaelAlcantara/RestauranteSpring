@@ -2,7 +2,11 @@ package restaurantejsp.springboot.restaurante.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import restaurantejsp.springboot.restaurante.modelo.Cliente;
+import restaurantejsp.springboot.restaurante.modelo.Prato;
+
+import java.util.List;
 
 import static java.lang.System.out;
 
@@ -28,14 +32,8 @@ public class IndexController {
         return "mainADM";
     }
 
-    @RequestMapping("/main")
-    public String main(@ModelAttribute String nome) {
-    if (nome.equals("ADM")){
-        return "mainADM";
-    }
-    else{
-        return "main";
-    }
-    }
+
+
+
 
 }

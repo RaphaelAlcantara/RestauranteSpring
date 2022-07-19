@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: rapha
@@ -18,7 +19,7 @@
 <body>
 <a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>MENU</a>
 
-<h1 class="uk-heading-line uk-text-center"><p class="uk-align-center">${msg}</p></h1>
+<h1 class="uk-heading-line uk-text-center"><p class="uk-align-center">${Bemvindo}</p></h1>
 <div id="offcanvas-slide" uk-offcanvas>
     <div class="uk-offcanvas-bar">
 
@@ -42,23 +43,25 @@
 </div>
 
 <div class="uk-grid-column-small uk-grid-row-large uk-child-width-1-3@s uk-text-center" uk-grid>
-    <div>
-        <div>
+
+<c:forEach var="prato" items="${pratos}">
             <div class="uk-card uk-card-default">
                 <div class="uk-card-media-top">
-                    <img src="https://img.cybercook.com.br/receitas/527/massa-de-pizza-7-840x480.jpeg?q=75" width="200" height="150" alt="">
+                    <img src="${prato.urlImagem}" width="200" height="150" alt="">
                 </div>
                 <div class="uk-card-body">
-                    <h3 class="uk-card-title">Media Top</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                    <p class="uk-text-bold">R$40,00</p>
+                    <h3 class="uk-card-title">${prato.nome}</h3>
+                    <p>${prato.descricao}</p>
+                    <p class="uk-text-bold">R$${prato.preco}</p>
                     <button class="uk-button uk-button-primary uk-button-small">Comprar</button>
                 </div>
             </div>
-        </div>
-    </div>
+</c:forEach>
+
 
 
 </div>
+<button class="uk-button uk-button-default" type="button" onclick="location.href='/main'">Voltar</button>
+
 </body>
 </html>

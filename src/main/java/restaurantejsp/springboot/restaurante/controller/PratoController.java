@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import restaurantejsp.springboot.restaurante.modelo.Cliente;
 import restaurantejsp.springboot.restaurante.modelo.Prato;
+import restaurantejsp.springboot.restaurante.repositorio.ClienteRepositorio;
 import restaurantejsp.springboot.restaurante.repositorio.PratoRepositorio;
 
 import java.util.List;
@@ -18,6 +19,9 @@ public class PratoController {
 
     @Autowired
     private PratoRepositorio pratoRepositorio;
+
+    @Autowired
+    private ClienteRepositorio clienteRepositorio;
 
     @GetMapping("/cadastrarP")
     public String cadastraPrato(){
@@ -39,9 +43,23 @@ public class PratoController {
         return mv;
     }
 
+
+
     @RequestMapping("/excluirPrato{id}")
     public String excluir(@PathVariable Long id) {
         pratoRepositorio.deleteById(id);
         return "redirect:/consultarPrato";
     }
+
+    @GetMapping("/main")
+    public ModelAndView main(Model m) {
+        ModelAndView mv = new ModelAndView("main");
+        m.addAttribute("Bemvindo", "Bem vindo ao restaurante Minimalist");
+        List<Prato> Pratos = pratoRepositorio.findAll();
+        mv.addObject("pratos", Pratos);
+        return mv;
+    }
+
+
 }
+

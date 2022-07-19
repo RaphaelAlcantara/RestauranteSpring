@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import restaurantejsp.springboot.restaurante.modelo.Cliente;
+import restaurantejsp.springboot.restaurante.modelo.Prato;
 import restaurantejsp.springboot.restaurante.repositorio.ClienteRepositorio;
+import restaurantejsp.springboot.restaurante.repositorio.PratoRepositorio;
 
 import java.util.List;
+import java.util.Scanner;
 
 @Controller
 //@RestController
@@ -16,6 +19,8 @@ public class ClienteController {
 
     @Autowired
     private ClienteRepositorio clienteRepositorio;
+    @Autowired
+    private PratoRepositorio pratoRepositorio;
 
 
     /*    Listar todos os clientes
@@ -58,14 +63,16 @@ public class ClienteController {
         List<Cliente> all = clienteRepositorio.findAll();
         for (Cliente c : all) {
             if (c.getCpf().equals(cliente.getCpf()) && c.getSenha().equals(cliente.getSenha())) {
-                m.addAttribute("msg", "Bem vindo! "+ c.getNome()+ " Escolha seu prato!");
-                return "main";
+//                m.addAttribute("msg", "Bem vindo! "+ c.getNome()+ " Escolha seu prato!");
+                return "redirect:/main";
             } else if (cliente.getCpf().equals("ADM") && cliente.getSenha().equals("ADM")) {
                 return "mainADM";
             }
         }
         return "redirect:/";
     }
+
+
 
 
 }

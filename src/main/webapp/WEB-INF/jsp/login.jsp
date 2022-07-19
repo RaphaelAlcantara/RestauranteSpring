@@ -19,7 +19,7 @@
 </head>
 <body  >
 <p class="uk-text-danger">${erro}</p>
-<h1 class="uk-heading-line uk-text-center"><span>Bem vindo!</span></h1>
+<h1 class="uk-heading-line uk-text-center"><span>MinimalistFood</span></h1>
 <p class="uk-text-success">${cadastro}</p>
 
   <form action="/logar"   method="post">
