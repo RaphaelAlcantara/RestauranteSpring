@@ -27,4 +27,13 @@ public class Prato {
         this.id = id;
     }
 
+    public Prato toPrato(){
+        Prato prato = new Prato();
+        prato.setId(this.id);
+        prato.setNome(this.nome);
+        prato.setDescricao(this.descricao);
+        prato.setPreco(this.preco);
+        prato.setUrlImagem(this.urlImagem);
+        return prato;
+    }
 }

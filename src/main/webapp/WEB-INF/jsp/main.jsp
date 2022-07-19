@@ -25,6 +25,7 @@
         <ul class="uk-nav uk-nav-default">
             <li class="uk-active"><a>PEDIDOS</a></li>
             <li><a href="#">Meus pedidos</a></li>
+            <li class="uk-nav-divider"></li>
             <li class="uk-active"><a href="#modal-example" uk-toggle>SAIR</a></li>
         </ul>
     </div>
