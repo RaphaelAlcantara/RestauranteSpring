@@ -28,9 +28,19 @@
             <li><a href="#">Item</a></li>
             <li><a href="#">Item</a></li>
             <li class="uk-nav-divider"></li>
-            <li><a href="#">Item</a></li>
+            <li class="uk-active"><a href="#modal-example" uk-toggle>SAIR</a></li>
         </ul>
 
+    </div>
+
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h1 class="uk-modal-title">Deseja mesmo sair?</h1>
+            <p class="uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button uk-button-primary" type="button" onclick="window.location.href='/'">Sair</button>
+            </p>
+        </div>
     </div>
 </div>
 </body>

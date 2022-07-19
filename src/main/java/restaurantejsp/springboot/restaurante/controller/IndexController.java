@@ -14,6 +14,8 @@ public class IndexController {
         return "login";
     }
 
+
+
     @GetMapping("/cadastrar")
     public String cadastro() {
 
@@ -26,11 +28,14 @@ public class IndexController {
         return "mainADM";
     }
 
-    @GetMapping("/main")
-    public String main() {
-
+    @RequestMapping("/main")
+    public String main(@ModelAttribute String nome) {
+    if (nome.equals("ADM")){
+        return "mainADM";
+    }
+    else{
         return "main";
     }
-
+    }
 
 }

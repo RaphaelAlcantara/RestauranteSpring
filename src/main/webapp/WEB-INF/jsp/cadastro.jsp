@@ -52,11 +52,12 @@
             <input class="uk-input uk-width-1" type="text" name="senha">
         </div>
     </div>
-    <div class=".uk-align-center">
+    <div class="uk-align-center">
     <input type="submit" class="uk-button uk-button-primary" value="Confirmar" />
     <button type="button" class="uk-button uk-button-default" onclick="location.href='/'">Voltar</button>
     </div>
 </form>
+
 </div>
 </body>
 </html>

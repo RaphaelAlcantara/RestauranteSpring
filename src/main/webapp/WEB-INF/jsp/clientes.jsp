@@ -39,6 +39,6 @@
         </c:forEach>
     </tbody>
   </table>
-  <button class="uk-button uk-button-default" type="button" onclick="location.href='/main'">Voltar</button>
+  <button class="uk-button uk-button-default" type="button" onclick="location.href='/mainADM'">Voltar</button>
 </body>
 </html>
