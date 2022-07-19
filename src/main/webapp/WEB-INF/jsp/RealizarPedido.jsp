@@ -20,26 +20,26 @@
     <div>
         <h1>Realizar pedidos</h1>
 
-        <form action="#" method="POST">
+        <form action="/cadastrarPedido" method="POST">
 
             <div class="uk-margin">
                 <label class="uk-form-label">Nome</label>
                 <div class="uk-margin">
-                    <input class="uk-input uk-width-1" type="text" name="nome" value="${cliente}" disabled>
+                    <input class="uk-input uk-width-1" type="text" name="nome" value="${cliente}">
                 </div>
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" >Nome do prato</label>
                 <div>
-                    <input class="uk-input uk-width-1" type="text" name="prato" value="${prato}" disabled>
+                    <input class="uk-input uk-width-1" type="text" name="prato" value="${prato}" >
                 </div>
             </div>
 
             <div class="uk-margin">
                 <label class="uk-form-label" >Preço</label>
                 <div>
-                    <input class="uk-input uk-width-1" type="number" step="0.5" min="0" name="preco" value="${preco}" disabled>
+                    <input class="uk-input uk-width-1" type="number" step="0.5" min="0" name="preco" value="${preco}">
                 </div>
             </div>
 
@@ -48,9 +48,9 @@
                     <label class="uk-form-label" for="form-stacked-select">Forma de pagamento</label>
                     <div class="uk-form-controls">
 
-                        <select class="uk-select" id="form-stacked-select">
+                        <select class="uk-select" id="form-stacked-select" name="pagamento">
                             <c:forEach var="pagamento" items="${pagamentos}">
-                                <option value="${pagamento.descricao}" name="pagamento">${pagamento.descricao}</option>
+                                <option typeof="text"  value="${pagamento.descricao}" >${pagamento.descricao}</option>
                             </c:forEach>
                         </select>
                     </div>

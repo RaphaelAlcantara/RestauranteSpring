@@ -33,7 +33,8 @@ public class Pedido {
     }
 
 
-    public Pedido Topedido(Pedido pedido) {
+    public Pedido Topedido() {
+        Pedido pedido = new Pedido();
         pedido.setId(this.id);
         pedido.setNome(this.nome);
         pedido.setPrato(this.prato);

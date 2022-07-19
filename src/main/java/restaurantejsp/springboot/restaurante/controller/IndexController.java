@@ -35,6 +35,12 @@ public class IndexController {
 
         return "mainADM";
     }
+    @GetMapping("/main")
+    public String main() {
+
+        return "main";
+    }
+
 
     @Autowired
     private ClienteRepositorio clienteRepositorio;
@@ -222,5 +228,16 @@ public class IndexController {
         m.addAttribute("preco", preco);
         return mv;
     }
+
+    @RequestMapping("/cadastrarPedido")
+    ModelAndView cadastrarPedido(Pedido pedido, Model m) {
+        ModelAndView mv = new ModelAndView("MeusPedidos");
+        m.addAttribute("cadastroPedido", "Cadastro realizado com sucesso!");
+        pedidoRepositorio.save(pedido.Topedido());
+        List<Pedido> Pedidos = pedidoRepositorio.findAll();
+        mv.addObject("pedidos", Pedidos);
+        return mv;
+    }
+
 
 }

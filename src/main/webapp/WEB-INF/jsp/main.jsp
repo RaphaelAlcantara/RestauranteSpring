@@ -21,7 +21,7 @@
 <body>
 <a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>MENU</a>
 
-<h1 class="uk-heading-line uk-text-center"><p class="uk-align-center">${Bemvindo}</p></h1>
+<h1 class="uk-heading-line uk-text-center"><p class="uk-align-center">${Bemvindo} ${cadastroPedido}</p></h1>
 <div id="offcanvas-slide" uk-offcanvas>
     <div class="uk-offcanvas-bar">
 
