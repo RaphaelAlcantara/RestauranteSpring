@@ -20,7 +20,7 @@ public class Pedido {
     private Long id;
     private String nome;
     private String prato;
-    private LocalDateTime data = LocalDateTime.now();
+    private LocalDateTime data = LocalDateTime.now().withHour(0).withMinute(0).withSecond(0);
     private Double preco;
     private String pagamento;
     private String observacao;

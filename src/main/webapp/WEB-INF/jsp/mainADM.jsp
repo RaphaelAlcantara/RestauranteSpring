@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: rapha
@@ -18,6 +19,14 @@
 <body>
 <a href="#offcanvas-slide" class="uk-button uk-button-default" uk-toggle>MENU</a>
 <h1 class="uk-heading-line uk-text-center"><p class="uk-text-success">${cadastroPrato}${cadastroPagamento}${Bemvindo}</p></h1>
+
+<div class="uk-child-width-1@s uk-light" uk-grid>
+    <div>
+        <div class="uk-background-cover uk-height-medium uk-panel uk-flex uk-flex-center uk-flex-left" style="background-image: url(https://i.imgur.com/YxMZWC4.png); align-items: center; margin: 24em">
+
+        </div>
+    </div>
+</div>
 <div id="offcanvas-slide" uk-offcanvas>
     <div class="uk-offcanvas-bar">
 
@@ -31,13 +40,16 @@
 
             <li class="uk-nav-header">PAGAMENTO</li>
             <li><a href="/cadastrarPag">Cadastrar Formas de pagamento</a></li>
-            <li><a href="/consultarPagamentos">Listar Formas de pagamento</a></li>
+            <li><a href="/consultarPagamentos">Listar Formas de pagamento</a></li><li>
+
+            <li class="uk-nav-header">PEDIDOS</li>
+            <li><a href="/PedidoAdm">Listar Pedidos</a></li>
 
             <li class="uk-nav-divider"></li>
             <li class="uk-active"><a href="#modal-example" uk-toggle>SAIR</a></li>
         </ul>
-
     </div>
+
 
     <div id="modal-example" uk-modal>
         <div class="uk-modal-dialog uk-modal-body">
@@ -49,5 +61,9 @@
         </div>
     </div>
 </div>
+
+
+
+
 </body>
 </html>

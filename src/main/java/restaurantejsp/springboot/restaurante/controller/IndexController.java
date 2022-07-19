@@ -35,11 +35,6 @@ public class IndexController {
 
         return "mainADM";
     }
-    @GetMapping("/main")
-    public String main() {
-
-        return "main";
-    }
 
 
     @Autowired
@@ -127,6 +122,11 @@ public class IndexController {
         }
         m.addAttribute("erro", "Usuário ou senha inválidos!");
         return new ModelAndView("login");
+    }
+
+    @RequestMapping("/main")
+    public String main() {
+        return "main";
     }
 
 
@@ -239,5 +239,12 @@ public class IndexController {
         return mv;
     }
 
+    @RequestMapping("/PedidoAdm")
+    public ModelAndView PedidoAdm() {
+        ModelAndView mv = new ModelAndView("ListaPedidosADM");
+        List<Pedido> Pedidos = pedidoRepositorio.findAll();
+        mv.addObject("pedidos", Pedidos);
+        return mv;
+    }
 
 }
